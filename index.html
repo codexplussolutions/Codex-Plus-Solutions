@@ -1623,6 +1623,101 @@
             font-size: 14px;
         }
 
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            background: #1da851;
+        }
+
+        .whatsapp-link i {
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        .whatsapp-text {
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.5);
+            }
+            100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            }
+        }
+
+        /* Mobile responsive for WhatsApp button */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .whatsapp-link {
+                padding: 12px 16px;
+            }
+            
+            .whatsapp-link i {
+                font-size: 24px;
+                margin-right: 8px;
+            }
+            
+            .whatsapp-text {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .whatsapp-link {
+                padding: 10px;
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                justify-content: center;
+            }
+            
+            .whatsapp-text {
+                display: none;
+            }
+            
+            .whatsapp-link i {
+                margin-right: 0;
+                font-size: 28px;
+            }
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from {
@@ -2970,36 +3065,16 @@
                     >
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="fullName" class="form-label">Full Name *</label>
-                                <input type="text" 
-                                       id="fullName" 
-                                       name="entry.1837171475" 
-                                       class="form-control" 
-                                       placeholder="Enter your full name" 
-                                       required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="companyName" class="form-label">Company Name</label>
+                                <label for="companyName" class="form-label">Company Name *</label>
                                 <input type="text" 
                                        id="companyName" 
                                        name="entry.631622395" 
                                        class="form-control" 
                                        placeholder="Enter company name">
                             </div>
-                            
+
                             <div class="form-group">
-                                <label for="resident" class="form-label">Resident Address *</label>
-                                <input type="text" 
-                                       id="resident" 
-                                       name="entry.1473648119" 
-                                       class="form-control" 
-                                       placeholder="Enter your address" 
-                                       required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="companyAddress" class="form-label">Company Address</label>
+                                <label for="companyAddress" class="form-label">Company Address *</label>
                                 <input type="text" 
                                        id="companyAddress" 
                                        name="entry.1856324690" 
@@ -3018,12 +3093,12 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="phone" class="form-label">Phone Number (with Country Code) *</label>
+                                <label for="phone" class="form-label">Phone Number </label>
                                 <input type="tel" 
                                        id="phone" 
                                        name="entry.1003486350" 
                                        class="form-control" 
-                                       placeholder="e.g., +1 (555) 123-4567" 
+                                       placeholder="+91 9876543210" 
                                        required>
                             </div>
                             
@@ -3155,7 +3230,7 @@
                         </label>
                         <div class="roi-input-wrapper">
                             <input type="number" id="hourlyRate" min="10" max="200" step="5" value="25" placeholder="e.g., 25">
-                            <span class="input-unit">$/hour</span>
+                            <span class="input-unit">₹/hour</span>
                         </div>
                         <div class="roi-slider">
                             <input type="range" id="rateSlider" min="10" max="200" value="25" step="5">
@@ -3175,9 +3250,9 @@
                             <span class="input-unit">one-time</span>
                         </div>
                         <div class="roi-pricing-options">
-                            <button class="pricing-option" data-cost="3999">Basic: $3,999</button>
-                            <button class="pricing-option active" data-cost="8999">Pro: $8,999</button>
-                            <button class="pricing-option" data-cost="11999">Enterprise: $11,999</button>
+                            <button class="pricing-option" data-cost="99,999">Basic: ₹99,999</button>
+                            <button class="pricing-option active" data-cost="3,99,999">Pro: ₹3,99,999</button>
+                            <button class="pricing-option" data-cost="6,99,999">Enterprise: ₹6,99,999</button>
                         </div>
                     </div>
                     
@@ -3208,13 +3283,13 @@
                     <div class="roi-metrics">
                         <div class="roi-metric">
                             <h5>Monthly Savings</h5>
-                            <div class="roi-metric-value" id="monthlySavings">$3,200</div>
+                            <div class="roi-metric-value" id="monthlySavings">₹3,200</div>
                             <div class="roi-metric-label">Recurring monthly savings</div>
                         </div>
                         
                         <div class="roi-metric">
                             <h5>Yearly Savings</h5>
-                            <div class="roi-metric-value" id="yearlySavings">$38,400</div>
+                            <div class="roi-metric-value" id="yearlySavings">₹38,400</div>
                             <div class="roi-metric-label">Annual cost reduction</div>
                         </div>
                         
@@ -3235,7 +3310,7 @@
                         <h5>Investment Analysis</h5>
                         <p class="roi-conclusion-text" id="roiConclusion">
                             Your investment in automation pays for itself in <strong>2.5 months</strong>. 
-                            After that, you'll save approximately <strong>$3,200 monthly</strong> while increasing productivity and reducing errors.
+                            After that, you'll save approximately <strong>₹3,200 monthly</strong> while increasing productivity and reducing errors.
                         </p>
                     </div>
                 </div>
@@ -3270,7 +3345,6 @@
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
@@ -3292,6 +3366,7 @@
                     <p><i class="fas fa-envelope"></i> info@codexplussolutions.com</p>
                     <p><i class="fas fa-clock"></i> Mon-Fri: 24/5</p>
                     <p><i class="fas fa-map-marker-alt"></i> Global Remote Team</p>
+                    <i class="fas fa-phone"></i> +91 8296714585</p>
                 </div>
             </div>
             
@@ -3300,6 +3375,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/918296714585" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-text">Chat Now</span>
+        </a>
+    </div>
 
     <script>
         // Custom Cursor
@@ -3488,7 +3571,7 @@
             // Create timestamp element
             const timeInfo = document.createElement('p');
             timeInfo.className = 'timestamp-info';
-            timeInfo.innerHTML = `<i class="fas fa-clock"></i> Submitted at: ${timestamp}`;
+            timeInfo.innerHTML = `<i class="fas fa-clock"></i> Submitted at: ₹{timestamp}`;
             timeInfo.style.cssText = 'margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; font-size: 14px;';
             
             // Add to success message
@@ -3550,7 +3633,7 @@
             
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
+                if (link.getAttribute('href') === `#₹{current}`) {
                     link.classList.add('active');
                 }
             });
@@ -3670,11 +3753,11 @@
                     document.getElementById('service').value = 'Advanced Automation';
                     document.getElementById('budget').value = 'Professional';
                     
-                    const monthlySavings = document.getElementById('monthlySavings').textContent.replace('$', '').replace(',', '');
-                    const yearlySavings = document.getElementById('yearlySavings').textContent.replace('$', '').replace(',', '');
+                    const monthlySavings = document.getElementById('monthlySavings').textContent.replace('₹', '').replace(',', '');
+                    const yearlySavings = document.getElementById('yearlySavings').textContent.replace('₹', '').replace(',', '');
                     const roi = document.getElementById('roiPercentage').textContent;
                     
-                    const projectDetails = `Based on ROI Calculator:\n- Estimated Monthly Savings: $${monthlySavings}\n- Estimated Yearly Savings: $${yearlySavings}\n- Expected ROI: ${roi}\n\nI'm interested in implementing an automation solution based on these calculations. Please provide a detailed quote.`;
+                    const projectDetails = `Based on ROI Calculator:\n- Estimated Monthly Savings: ₹₹{monthlySavings}\n- Estimated Yearly Savings: ₹₹{yearlySavings}\n- Expected ROI: ₹{roi}\n\nI'm interested in implementing an automation solution based on these calculations. Please provide a detailed quote.`;
                     
                     document.getElementById('projectDetails').value = projectDetails;
                 }, 500);
@@ -3706,14 +3789,14 @@
             // Update UI with calculated values
             document.getElementById('monthlySavings').textContent = formatCurrency(monthlySavings);
             document.getElementById('yearlySavings').textContent = formatCurrency(yearlySavings);
-            document.getElementById('roiPercentage').textContent = `${roiPercentage}%`;
+            document.getElementById('roiPercentage').textContent = `₹{roiPercentage}%`;
             document.getElementById('paybackPeriod').textContent = paybackMonths;
             
             // Update conclusion text
             const conclusion = document.getElementById('roiConclusion');
             conclusion.innerHTML = `
-                Your investment in automation pays for itself in <strong>${paybackMonths} months</strong>. 
-                After that, you'll save approximately <strong>${formatCurrency(monthlySavings)} monthly</strong> while increasing productivity and reducing errors.
+                Your investment in automation pays for itself in <strong>₹{paybackMonths} months</strong>. 
+                After that, you'll save approximately <strong>₹{formatCurrency(monthlySavings)} monthly</strong> while increasing productivity and reducing errors.
             `;
             
             // Add visual feedback based on ROI
@@ -3729,7 +3812,7 @@
         
         // Helper function to format currency
         function formatCurrency(amount) {
-            return '$' + amount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return '₹' + amount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         }
         
         // Initialize
@@ -3742,9 +3825,18 @@
             // Initialize ROI calculator with default values
             calculateROI();
             
-            // Removed the duplicate "Quality Guarantee" navigation item addition code
+            // WhatsApp button interaction
+            const whatsappButton = document.querySelector('.whatsapp-link');
+            whatsappButton.addEventListener('mouseenter', () => {
+                whatsappButton.style.transform = 'translateY(-5px)';
+                whatsappButton.style.boxShadow = '0 8px 25px rgba(37, 211, 102, 0.4)';
+            });
+            
+            whatsappButton.addEventListener('mouseleave', () => {
+                whatsappButton.style.transform = 'translateY(0)';
+                whatsappButton.style.boxShadow = '0 4px 20px rgba(37, 211, 102, 0.3)';
+            });
         });
     </script>
 </body>
-
 </html>
